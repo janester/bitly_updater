@@ -8,6 +8,8 @@ gem 'haml-rails'
 gem 'bcrypt-ruby'
 gem 'activesupport'
 gem 'aws-ses'
+gem 'httparty'
+gem 'dotenv-rails'
 
 
 
@@ -20,6 +22,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'coffee-rails-source-maps'
   gem 'factory_girl_rails'
   gem 'guard-rspec'

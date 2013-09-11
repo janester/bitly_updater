@@ -1,2 +1,10 @@
 %h1 Home#index
 %p Find me in app/views/home/index.html.haml
+
+-if session[:user].nil?
+  =link_to("Sign in with Bitly", "https://bitly.com/oauth/authorize?client_id=#{@client_id}&redirect_uri=http://localhost:3000/callback/")
+-else
+  =form_tag user_path(session[:user].id) do
+    =label_tag :email, "Enter the email you'd like to recieve your bitly updates at:"
+    =text_field_tag :email, session[:user].email
+    =submit_tag

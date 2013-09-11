@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911164823) do
+ActiveRecord::Schema.define(:version => 20130911170109) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20130911164823) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "access_token"
+    t.string   "login"
+    t.string   "apikey"
   end
 
 end
