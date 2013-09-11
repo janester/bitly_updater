@@ -6,17 +6,14 @@ class SessionController < ApplicationController
   end
 
   def callback
-    client_id="2ef51869c19eb4db55b928013fcde1b3479df980"
-    client_secret="3ea14b69ad08614aac6a0e883364b5ed1bdd6e31"
+
     code = params[:code]
-    redirect_uri = "http://localhost:3000/callback/"
-    uri = URI.parse('https://api-ssl.bitly.com/oauth/access_token')
     begin
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
 
       request = Net::HTTP::Post.new(uri.request_uri)
-      request.set_form_data({'client_id' => client_id, 'client_secret' => client_secret, 'redirect_uri' => redirect_uri, 'code' => code})
+      request.set_form_data({'client_id' => ENV["CLIENT_ID"], 'client_secret' => ENV["CLIENT_SECRET"], 'redirect_uri' => ENV["REDIRECT_URI"], 'code' => code})
 
       response = https.request(request)
 
