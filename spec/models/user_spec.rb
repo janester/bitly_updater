@@ -7,6 +7,11 @@
 #  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  access_token    :string(255)
+#  login           :string(255)
+#  apikey          :string(255)
+#  first           :string(255)
+#  last            :string(255)
 #
 
 require 'spec_helper'
