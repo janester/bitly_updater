@@ -15,11 +15,13 @@ h1 {
   font-family: 'Grand Hotel', cursive;
   color: $red;
   font-size: 5em;
+  border-top: 10px solid $red;
 }
 
 h3 {
   font-family: 'Cutive Mono', serif;
   color: $yellow;
+  border-bottom: 10px solid $red;
 }
 
 body {
