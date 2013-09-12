@@ -3,10 +3,11 @@
 %p Thanks for signing up for Bitly Link Updater. You will recieve a message daily with the updated click count for your Bitly links that have been clicked. Here is a list of the links you are currently tracking:
 %ul
   -@user.links.each do |link|
-    %li
-      = "name: #{link.name}"
-      = "url: #{link.url}"
-      = "clicks: #{link.clicks}"
+    %li{style:"margin:10px 0;"}
+      %div= "name: #{link.name}"
+      %div= "clicks: #{link.clicks}"
+      %div= "url: #{link.url}"
+
 
 %p If you see something wrong with this list. Please reply to this email with the problem.
 %p Best,

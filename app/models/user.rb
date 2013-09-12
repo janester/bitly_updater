@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
     response = User.api_call("https://api-ssl.bitly.com/v3/user/link_history?format=json&access_token=#{self.access_token}")
     link_list = []
     response["data"]["link_history"].each do |link|
-      l = Link.find_or_initialize_by_url(link["link"])
+      link["keyword_link"].nil? ? real_link = link["link"] : real_link = link["keyword_link"]
+      l = Link.find_or_initialize_by_url(real_link)
       link["title"].nil? ? title = link["long_url"] : title = link["title"]
       response = User.api_call("https://api-ssl.bitly.com/v3/link/clicks?link=#{link["link"]}&unit=day&units=-1&format=json&access_token=#{self.access_token}")
       clicks = response["data"]["link_clicks"]
@@ -51,4 +52,17 @@ class User < ActiveRecord::Base
     name = response["data"]["full_name"].split(" ")
     update_attributes(first:name[0], last:name[1])
   end
+
+  def updated_links
+    link_list = []
+    binding.pry
+    self.links.each do |link|
+      if link.clicks != link.prev_clicks
+        link_list << link
+      end
+    end
+    link_list
+  end
+
+
 end

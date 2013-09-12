@@ -4,4 +4,10 @@ class Notifications < ActionMailer::Base
     @user = user
     mail :to => user.email, :subject => "Bitly Link Updater Confirmation"
   end
+
+  def update_message(user, links)
+    @user = user
+    @links = links
+    mail :to => user.email, :subject => "Bitly Link Update"
+  end
 end

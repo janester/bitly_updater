@@ -23,7 +23,7 @@ class SessionController < ApplicationController
       a = pair.split('=')
       data[a[0].to_sym] = a[1]
     end
-    session[:user] = User.create_with_oauth(data)
+    session[:user_id] = User.create_with_oauth(data).id
 
     redirect_to(root_path)
   end

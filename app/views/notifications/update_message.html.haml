@@ -1,0 +1,15 @@
+%p= "Dear #{@user.first},"
+%p Here is a list of links that have been clicked at least once since the last time we checked:
+
+%ul
+  -@links.sort_by(&:clicks).reverse.each do |link|
+    %li{style:"margin:10px 0;"}
+      %div= "name: #{link.name}"
+      %div
+        = "clicks: #{link.clicks}"
+        %span{style:"color:red;"}= "--- That's #{link.clicks - link.prev_clicks} more clicks than last time"
+      %div= "url: #{link.url}"
+
+%p If you see something wrong with this list. Please reply to this email with the problem.
+%p Best,
+%p BitlyUpdater
