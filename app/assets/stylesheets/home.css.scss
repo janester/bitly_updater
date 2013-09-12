@@ -1,3 +1,93 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$black: #2A2B2A;
+$grey: #4B4B4D;
+$red: #D63431;
+$yellow: #FDBE2B;
+$blue: #21A6C9;
+
+h1, h3 {
+  width: 100%;
+  text-align: center;
+  background: $grey;
+  padding: 10px;
+}
+
+h1 {
+  font-family: 'Grand Hotel', cursive;
+  color: $red;
+  font-size: 5em;
+}
+
+h3 {
+  font-family: 'Cutive Mono', serif;
+  color: $yellow;
+}
+
+body {
+  background: $blue;
+  text-align: center;
+  font-family: 'Cutive Mono', serif;
+  .sign-in, .add-email {
+    background: $yellow;
+    border: 10px solid $grey;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 7% auto;
+    text-align: center;
+    width: 50%;
+    padding: 20px;
+    h4, p {
+      display: inline;
+    }// close h4 & p
+    a {
+      display: block;
+      font-family: 'Grand Hotel', cursive;
+      text-decoration: none;
+      color: $red;
+      font-size: 3em;
+      padding: 10px;
+      &:hover {
+        color: $blue;
+      }// close hover
+    }// close a
+  }// close sign-in & add-email
+  .add-email {
+    .text-field {
+      font-size: 3em;
+      font-family: 'Grand Hotel', cursive;
+      padding: 10px;
+      border: none;
+      text-align: center;
+      color: $blue;
+      background: $grey;
+      margin: 20px auto;
+    }// close text-field
+    .btn {
+      font-family: 'Cutive Mono', serif;
+      border: 3px solid rgba(255, 255, 255, 0);
+      font-size: 1.5em;
+      background: $red;
+      padding: 10px;
+      color: black;
+      display: inline-block;
+      &:hover {
+        border: 3px solid $grey;
+        color: $black;
+      }// close hover
+    }// close btn
+    h2 {
+      margin: 20px auto;
+    }
+  }// close add-email
+  .flash {
+    width: 50%;
+    margin: 20px auto;
+    color: $yellow;
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }// close flash
+  .bitly {
+    font-family: 'Grand Hotel', cursive;
+    color: $red;
+    font-size: 1.5em;
+  }
+}// close body

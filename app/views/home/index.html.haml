@@ -1,11 +1,19 @@
 %h1 BitlyUpdater
+%h3 (Not Affiliated with Bitly)
 
-= flash[:message]
+%p.flash= raw flash[:message]
 
 -if @cu.nil?
-  =link_to("Sign in with Bitly", "https://bitly.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["REDIRECT_URI"]}")
+  .sign-in
+    %h4 Instructions.
+    %p Stumptown Carles squid, you probably haven't heard of them PBR beard meh direct trade viral YOLO. Banksy Terry Richardson Shoreditch fashion axe polaroid, cliche yr skateboard VHS pork belly drinking vinegar narwhal shabby chic. Flexitarian food truck Intelligentsia Pinterest tousled, DIY put a bird on it retro cardigan bicycle rights wayfarers mlkshk. Mumblecore bespoke Austin, trust fund Terry Richardson DIY Williamsburg PBR&B blog freegan typewriter ugh Schlitz fixie. Hashtag kitsch shabby chic vegan occupy chillwave Schlitz, church-key flannel VHS readymade. Small batch meh post-ironic Blue Bottle cred, deep v mustache Schlitz. Brooklyn you probably haven't heard of them tote bag, swag organic lomo plaid narwhal sriracha.
+    =link_to("Sign in with bitly", "https://bitly.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["REDIRECT_URI"]}")
 -else
-  =form_tag user_path(@cu.id), :method => :put do
-    =label_tag :email, "Enter the email you'd like to recieve your bitly updates at:"
-    =text_field_tag :email, @cu.email
-    =submit_tag
+  .add-email
+    =form_tag user_path(@cu.id), :method => :put do
+      %p= raw "Enter the email you'd like to recieve your <span class='bitly'>bitly</span> updates at:"
+      =text_field_tag :email, @cu.email, :class => "text-field"
+      %br
+      =submit_tag "Update", :class=> "btn"
+    %h2 -OR-
+    = link_to("Sign Out", session_destroy_path, :class => "btn")

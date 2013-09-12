@@ -2,7 +2,7 @@
 
 %p Thanks for signing up for Bitly Link Updater. You will recieve a message daily with the updated click count for your Bitly links that have been clicked. Here is a list of the links you are currently tracking:
 %ul
-  -@user.links.each do |link|
+  -@user.links.sort_by(&:clicks).reverse.each do |link|
     %li{style:"margin:10px 0;"}
       %div= "name: #{link.name}"
       %div= "clicks: #{link.clicks}"
