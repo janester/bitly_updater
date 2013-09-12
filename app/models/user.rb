@@ -55,7 +55,6 @@ class User < ActiveRecord::Base
 
   def updated_links
     link_list = []
-    binding.pry
     self.links.each do |link|
       if link.clicks != link.prev_clicks
         link_list << link
