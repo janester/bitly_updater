@@ -5,7 +5,8 @@
 
 -if @cu.nil?
   .sign-in
-    %h4 Instructions.
+    %span.bitly
+      %h4 Instructions.
     %p Stumptown Carles squid, you probably haven't heard of them PBR beard meh direct trade viral YOLO. Banksy Terry Richardson Shoreditch fashion axe polaroid, cliche yr skateboard VHS pork belly drinking vinegar narwhal shabby chic. Flexitarian food truck Intelligentsia Pinterest tousled, DIY put a bird on it retro cardigan bicycle rights wayfarers mlkshk. Mumblecore bespoke Austin, trust fund Terry Richardson DIY Williamsburg PBR&B blog freegan typewriter ugh Schlitz fixie. Hashtag kitsch shabby chic vegan occupy chillwave Schlitz, church-key flannel VHS readymade. Small batch meh post-ironic Blue Bottle cred, deep v mustache Schlitz. Brooklyn you probably haven't heard of them tote bag, swag organic lomo plaid narwhal sriracha.
     =link_to("Sign in with bitly", "https://bitly.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["REDIRECT_URI"]}")
 -else
