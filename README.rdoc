@@ -6,7 +6,7 @@ Ruby on Rails app that allows a user to sign in using Bitly and recieve daily em
 === Technologies Used:
 - Ruby on Rails (3.2.13)
 - Bitly API
-- AWS SES
+- AWS Simple Email Service (SES)
 - HAML
 - SASS
 
