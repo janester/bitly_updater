@@ -48,9 +48,11 @@ class User < ActiveRecord::Base
   end
 
   def get_name
-    response = User.api_call("https://api-ssl.bitly.com/v3/user/info?format=json&access_token=#{self.access_token}")
-    name = response["data"]["full_name"].split(" ")
-    update_attributes(first:name[0], last:name[1])
+    if self.first.nil?
+      response = User.api_call("https://api-ssl.bitly.com/v3/user/info?format=json&access_token=#{self.access_token}")
+      name = response["data"]["full_name"].split(" ")
+      update_attributes(first:name[0], last:name[1])
+    end
   end
 
   def updated_links
